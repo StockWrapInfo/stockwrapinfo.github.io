@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> StockWrapInfo</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required css and java scripts -->
+    <link type="image/icon" rel="icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="../css/swi.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="../js/swi.js"></script>
+  </head>
+  <body style="margin:0 40px;" >
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-4">
+          <a href="home.html">
+            <img src="../img/SWI_400x100_logo.jpg"/>
+          </a>
+        </div>
+        <div class="col">
+          <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; margin-top: 45px;">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="about.html">About Us</a>
+                <a class="nav-item nav-link" href="dbservice.html">Database Services</a>
+                <a class="nav-item nav-link" href="resources.html">Resources</a>
+                <a class="nav-item nav-link" href="contact.html">Contact Us</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Us Section to move inside the page-->
+    <section id="contact" class="section" onload='document.form1.contactnum.focus()' >
+      <hr class="hr-pad"></hr>
+      <h2 class="h2-sec">Contact Us</h2><br>
+      <form name="form1" action="#" >
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col">
+              <label>First Name</label>
+              <input type="text" class="form-control" placeholder="First name">
+            </div>
+            <div class="col" style="margin-right:450px">
+              <label>Second Name</label>
+              <input type="text" class="form-control" placeholder="Last name">
+            </div>
+          </div>
+          <div class="form-group" style="margin-right:450px">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="(e.g) ex@mail.com">
+          </div>
+          <div class="row" style="margin-left:0px">
+            <div class="col-drop dropdown">
+              <label>Country Code</label>
+              <input type="text" class="form-control" placeholder="Country Code">
+            </div>
+            <div class="col" style="margin-right:450px">
+              <label>Contact Number</label>
+              <input type="text" name="contactnum" class="form-control" placeholder="Contact Number">
+            </div>
+      <!--          <div class="form-check">
+                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                     <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
+          </div><br>
+          <input type="submit" name="submit" class="btn btn-primary" value="Submit" onclick="phonenumber(document.form1.contactnum)">
+          <div>
+                  <!--      <p style="margin-right: -45px;margin-left: 819px;margin-top: -44px; color:#56bff0;font-size:small;">Disclaimer !!!</p>-->
+          <p style="margin-left: 621px;font-size:small;">Disclaimer -  We'll never share your details with anyone else.</p>
+        </div>
+      </form>
+    </section>
+  </body>
+  <hr class="hr-pad"></hr>
+  <footer  style="margin-bottom:15px;"><center class="jumbotron" style="padding:25px"> © 2018 Stock Wrap Info. All Rights Reserved.</center></footer>
+</html>
