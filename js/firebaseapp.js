@@ -11,17 +11,24 @@ firebase.initializeApp(config);
 
 
 // Reference to the recommendations object in your Firebase database
-var test_fb = firebase.database().ref("test_fb");
+var user_data = firebase.database().ref("user_data");
 
 // Save a new recommendation to the database, using the input in the form
-var submitTest_fb = function () {
+var submitUser_data = function () {
 
   // Get input values from each of the form elements
-  var fname = $("#first_name").val();
-
+  var fname = $("#fname").val();
+  var sname = $("#sname").val();
+  var email = $("#exampleInputEmail1").val();
+  var ccode = $("#ccode").val();
+  var cnumber = $("#cnumber").val();
   // Push a new recommendation to the database using those values
-  test_fb.push({
-    "First_Name": fname
+  user_data.push({
+    "First_Name": fname,
+    "Second_Name": sname,
+    "MailID": email,
+    "Country_Code": ccode,
+    "Contact_Number": cnumber
 
   });
 };
@@ -35,6 +42,6 @@ $(window).load(function () {
 
   // Find the HTML element with the id recommendationForm, and when the submit
   // event is triggered on that element, call submitRecommendation.
-  $("#test_fb1").submit(submitTest_fb);
+  $("#user_data").submit(submitUser_data);
 
 });

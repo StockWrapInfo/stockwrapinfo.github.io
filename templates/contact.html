@@ -14,8 +14,12 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="../js/swi.js"></script>
+    // FireBase for dynamic Web Pages
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
   </head>
   <body style="margin:0 40px; margin-bottom:0;">
+    <!-- Load the application script, which will save data to our Firebase app. -->
+    <script src="js/firebaseapp.js"></script>
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <div class="container-fluid">
       <div class="row">
@@ -39,49 +43,6 @@
         </div>
       </div>
     </div>
-    <!-- PHP Script for Form Validation -->
-    <?php
-// define variables and set to empty values
-$fnameErr = $emailErr = $cnumberErr = $ccodeErr = "";
-$fname = $email = $cnumber = $ccode = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
- if (empty($_POST["fname"])) {
-   $fnameErr = "Name is required";
- } else {
-   $fname = test_input($_POST["fname"]);
- }
-
- if (empty($_POST["email"])) {
-   $emailErr = "Email is required";
- } else {
-   $email = test_input($_POST["email"]);
- }
-
- if (empty($_POST["cnumber"])) {
-   $cnumberErr = "";
- } else {
-   $cnumber = test_input($_POST["cnumber"]);
- }
-
- if (empty($_POST["ccode"])) {
-   $ccodeErr = "";
- } else {
-   $ccode = test_input($_POST["ccode"]);
- }
-
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-
-?>
-
-
     <!-- Contact Us Section to move inside the page-->
     <section id="contact" class="section"> <!--onload='document.form1.contactnum.focus()' >-->
       <hr class="hr-pad"></hr>
@@ -94,41 +55,41 @@ function test_input($data) {
       </div>
       <hr>
       <h2 class="h2-sec">Contact Us</h2><br>
-      <form method="post" name="form1" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+      <form id="user_data" action="contact.html">
         <div class="jumbotron" style="padding:20px;">
           <p><span class="text-danger">* Required Field.</span></p>
           <div class="row">
             <div class="col">
-              <span class="error">* <?php echo $nameErr;?></span>
-              <label>First Name</label>
-              <input type="text" name="fname" class="form-control" placeholder="First name">
+              <span class="text-danger">*</span>
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" class="form-control" placeholder="First name">
             </div>
             <div class="col" style="margin-right:450px">
-              <label>Second Name</label>
-              <input type="text" name="sname" class="form-control" placeholder="Last name">
+              <label for="sname">Second Name</label>
+              <input type="text" id="sname" class="form-control" placeholder="Last name">
             </div>
           </div>
           <div class="form-group" style="margin-right:450px">
-            <span class="error">* <?php echo $emailErr;?></span>
+            <span class="text-danger">*</span>
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="(e.g) ex@mail.com">
           </div>
           <div class="row" style="margin-left:0px">
             <div class="col-drop dropdown">
-              <span class="error">* <?php echo $ccodeErr;?></span>
-              <label>Country Code</label>
-              <input type="text" name="ccode" class="form-control" placeholder="Country Code">
+              <span class="text-danger">*</span>
+              <label for="ccode">Country Code</label>
+              <input type="text" id="ccode" class="form-control" placeholder="Country Code">
             </div>
             <div class="col" style="margin-right:450px">
-              <span class="error">* <?php echo $cnumberErr;?></span>
-              <label>Contact Number</label>
-              <input type="text" name="cnumber" class="form-control" placeholder="Contact Number">
+              <span class="text-danger">*</span>
+              <label for="cnumber">Contact Number</label>
+              <input type="text" id="cnumber" class="form-control" placeholder="Contact Number">
             </div>
       <!--          <div class="form-check">
                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
                      <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
           </div><br>
-          <input type="submit" name="submit" class="btn btn-primary" value="Submit" action="contact.html"> <!-- onclick="phonenumber(document.form1.cnumber)"> -->
+          <input type="submit" name="submit" class="btn btn-primary" value="Submit"> <!-- onclick="phonenumber(document.form1.cnumber)"> -->
           <div>
                   <!--      <p style="margin-right: -45px;margin-left: 819px;margin-top: -44px; color:#56bff0;font-size:small;">Disclaimer !!!</p>-->
           <p style="margin-left: 621px;font-size:small;">Disclaimer -  We'll never share your details with anyone else.</p>
@@ -136,20 +97,6 @@ function test_input($data) {
       </form>
     </section>
 
-    // FireBase for dynamic Web Pages
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-    <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyCqV6kTTwa0E6n7qg5my2vwHPP2-IGIvaw",
-      authDomain: "stockwrapinfo-5ec9e.firebaseapp.com",
-      databaseURL: "https://stockwrapinfo-5ec9e.firebaseio.com",
-      projectId: "stockwrapinfo-5ec9e",
-      storageBucket: "",
-      messagingSenderId: "737116197699"
-    };
-    firebase.initializeApp(config);
-    </script>
 
 
   </body>
