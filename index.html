@@ -24,10 +24,10 @@
     <div class="container row">
       <div class="col-xs-12">
         <div class="form">
-          <form action="" class="form">
+          <form id="test_fb1" class="form">
             <div class="control-group">
               <label for="first_name">Name</label>
-              <input type="text" name="first_name">
+              <input type="text" id="first_name">
             </div>
             <div>
               <button class="submit btn btn-primary">Save</button>
@@ -39,14 +39,7 @@
     <script src="https://www.gstatic.com/firebasejs/3.0.2/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
     <script>
-    $.fn.getFormData = function() {
-      var fields = this.find('[fname]');
-      var result = {};
-      $.each(fields, function (i, el) {
-        result[el.fname] = el.value;
-      });
-      return result;
-    };
+
     var config = {
       apiKey: "AIzaSyCqV6kTTwa0E6n7qg5my2vwHPP2-IGIvaw",
       authDomain: "stockwrapinfo-5ec9e.firebaseapp.com",
@@ -55,15 +48,37 @@
       storageBucket: "",
       messagingSenderId: "737116197699"
     };
-      var fb = firebase.initializeApp(config);
-      var user_id;
-      $('.submit').on('click', function (e) {
-        e.preventDefault();
-        var updates = {};
-        user_id = user_id ? user_id : fb.database().ref().child('user-data').push().key;
-        updates[user_id] = $('form').getFormData();
-        fb.database().ref().child('user-data').update(updates);
+    firebase.initializeApp(config);
+
+
+    // Reference to the recommendations object in your Firebase database
+    var test_fb = firebase.database().ref("test_fb");
+
+    // Save a new recommendation to the database, using the input in the form
+    var submitTest_fb = function () {
+
+      // Get input values from each of the form elements
+      var fname = $("#first_name").val();
+
+      // Push a new recommendation to the database using those values
+      test_fb.push({
+        "First_Name": fname,
+
       });
+    };
+
+    // When the window is fully loaded, call this function.
+    // Note: because we are attaching an event listener to a particular HTML element
+    // in this function, we can't do that until the HTML element in question has
+    // been loaded. Otherwise, we're attaching our listener to nothing, and no code
+    // will run when the submit button is clicked.
+    $(window).load(function () {
+
+      // Find the HTML element with the id recommendationForm, and when the submit
+      // event is triggered on that element, call submitRecommendation.
+      $("#test_fb1").submit(submitTest_fb);
+
+    });
     </script>
   </body>
 </html>
