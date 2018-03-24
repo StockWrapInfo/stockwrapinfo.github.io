@@ -1,4 +1,3 @@
-<script>
 
 var config = {
   apiKey: "AIzaSyCqV6kTTwa0E6n7qg5my2vwHPP2-IGIvaw",
@@ -39,4 +38,3 @@ $(window).load(function () {
   $("#test_fb1").submit(submitTest_fb);
 
 });
-</script>
