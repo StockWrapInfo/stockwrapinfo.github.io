@@ -11,7 +11,7 @@ firebase.initializeApp(config);
 
 
 // Reference to the recommendations object in your Firebase database
-var user_data = firebase.database().ref("user_data1");
+var user_data = firebase.database().ref("user_data");
 
 // Save a new recommendation to the database, using the input in the form
 var submitUser_data = function () {
@@ -42,6 +42,6 @@ $(window).load(function () {
 
   // Find the HTML element with the id recommendationForm, and when the submit
   // event is triggered on that element, call submitRecommendation.
-  $("#user_data").submit(submitUser_data);
+  $("#user_dataForm").submit(submitUser_data);
 
 });

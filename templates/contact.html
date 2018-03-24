@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- FireBase for dynamic Web Pages -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
     <title> StockWrapInfo</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -14,12 +16,12 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="../js/swi.js"></script>
-    // FireBase for dynamic Web Pages
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
   </head>
   <body style="margin:0 40px; margin-bottom:0;">
+
     <!-- Load the application script, which will save data to our Firebase app. -->
     <script src="../js/firebaseapp.js"></script>
+
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <div class="container-fluid">
       <div class="row">
@@ -55,7 +57,7 @@
       </div>
       <hr>
       <h2 class="h2-sec">Contact Us</h2><br>
-      <form id="user_data" action="contact.html">
+      <form id="user_dataForm" action="contact.html">
         <div class="jumbotron" style="padding:20px;">
           <p><span class="text-danger">* Required Field.</span></p>
           <div class="row">
