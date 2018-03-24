@@ -1,25 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <title> StockWrapInfo</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Required css and java scripts -->
-    <link type="image/icon" rel="icon" href="../img/favicon.ico">
-    <link rel="stylesheet" href="../css/swi.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="../js/swi.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <title>Firebase Sample</title>
   </head>
-  <body style="margin:0 40px;" >
-    <h1 class="jumbotron" style="margin-top:200px;background-color:#e3f2fd;">
-      <div class="alert" role="alert">
-        <center> OOPS !!! Web Site Under Development. </center>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>Firebase Sample</h1>
       </div>
-    </h1>
+    </div>
+    <div class="container row">
+        <div class="col-xs-12">
+            <h2>Instructions:</h2>
+            <ul>
+                <li>Create a firebase application on the <a href="https://console.firebase.google.com" target="blank">console</a></li>
+                <li>Replace the information marked as &lt;REPLACE ME&gt; with the correct information from the project's console</li>
+            </ul>
+            <h2>Todo:</h2>
+            <p><strong><a href="https://www.firebase.com/docs/web/guide/user-auth.html">Add User Login</a></strong></p>
+            <p><strong><a href="https://www.firebase.com/docs/security/guide/user-security.html">Add Security Rules</a></strong></p>
+        </div>
+    </div>
+    <div class="container row">
+      <div class="col-xs-12">
+        <div class="form">
+          <form action="" class="form">
+            <div class="control-group">
+              <label for="first_name">Name</label>
+              <input type="text" name="first_name">
+            </div>
+            <div>
+              <button class="submit btn btn-primary">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/3.0.2/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script>
+    $.fn.getFormData = function() {
+      var fields = this.find('[fname]');
+      var result = {};
+      $.each(fields, function (i, el) {
+        result[el.fname] = el.value;
+      });
+      return result;
+    };
+    var config = {
+      apiKey: "AIzaSyCqV6kTTwa0E6n7qg5my2vwHPP2-IGIvaw",
+      authDomain: "stockwrapinfo-5ec9e.firebaseapp.com",
+      databaseURL: "https://stockwrapinfo-5ec9e.firebaseio.com",
+      projectId: "stockwrapinfo-5ec9e",
+      storageBucket: "",
+      messagingSenderId: "737116197699"
+    };
+      var fb = firebase.initializeApp(config);
+      var user_id;
+      $('.submit').on('click', function (e) {
+        e.preventDefault();
+        var updates = {};
+        user_id = user_id ? user_id : fb.database().ref().child('user-data').push().key;
+        updates[user_id] = $('form').getFormData();
+        fb.database().ref().child('user-data').update(updates);
+      });
+    </script>
   </body>
 </html>

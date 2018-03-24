@@ -39,47 +39,119 @@
         </div>
       </div>
     </div>
+    <!-- PHP Script for Form Validation -->
+    <?php
+// define variables and set to empty values
+$fnameErr = $emailErr = $cnumberErr = $ccodeErr = "";
+$fname = $email = $cnumber = $ccode = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+ if (empty($_POST["fname"])) {
+   $fnameErr = "Name is required";
+ } else {
+   $fname = test_input($_POST["fname"]);
+ }
+
+ if (empty($_POST["email"])) {
+   $emailErr = "Email is required";
+ } else {
+   $email = test_input($_POST["email"]);
+ }
+
+ if (empty($_POST["cnumber"])) {
+   $cnumberErr = "";
+ } else {
+   $cnumber = test_input($_POST["cnumber"]);
+ }
+
+ if (empty($_POST["ccode"])) {
+   $ccodeErr = "";
+ } else {
+   $ccode = test_input($_POST["ccode"]);
+ }
+
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+?>
+
 
     <!-- Contact Us Section to move inside the page-->
-    <section id="contact" class="section" onload='document.form1.contactnum.focus()' >
+    <section id="contact" class="section"> <!--onload='document.form1.contactnum.focus()' >-->
       <hr class="hr-pad"></hr>
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="../img/contact.jpg" alt="contact_img">
+          </div>
+        </div>
+      </div>
+      <hr>
       <h2 class="h2-sec">Contact Us</h2><br>
-      <form name="form1" action="#" >
-        <div class="jumbotron">
+      <form method="post" name="form1" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <div class="jumbotron" style="padding:20px;">
+          <p><span class="text-danger">* Required Field.</span></p>
           <div class="row">
             <div class="col">
+              <span class="error">* <?php echo $nameErr;?></span>
               <label>First Name</label>
-              <input type="text" class="form-control" placeholder="First name">
+              <input type="text" name="fname" class="form-control" placeholder="First name">
             </div>
             <div class="col" style="margin-right:450px">
               <label>Second Name</label>
-              <input type="text" class="form-control" placeholder="Last name">
+              <input type="text" name="sname" class="form-control" placeholder="Last name">
             </div>
           </div>
           <div class="form-group" style="margin-right:450px">
+            <span class="error">* <?php echo $emailErr;?></span>
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="(e.g) ex@mail.com">
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="(e.g) ex@mail.com">
           </div>
           <div class="row" style="margin-left:0px">
             <div class="col-drop dropdown">
+              <span class="error">* <?php echo $ccodeErr;?></span>
               <label>Country Code</label>
-              <input type="text" class="form-control" placeholder="Country Code">
+              <input type="text" name="ccode" class="form-control" placeholder="Country Code">
             </div>
             <div class="col" style="margin-right:450px">
+              <span class="error">* <?php echo $cnumberErr;?></span>
               <label>Contact Number</label>
-              <input type="text" name="contactnum" class="form-control" placeholder="Contact Number">
+              <input type="text" name="cnumber" class="form-control" placeholder="Contact Number">
             </div>
       <!--          <div class="form-check">
                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
                      <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
           </div><br>
-          <input type="submit" name="submit" class="btn btn-primary" value="Submit" onclick="phonenumber(document.form1.contactnum)">
+          <input type="submit" name="submit" class="btn btn-primary" value="Submit" action="contact.html"> <!-- onclick="phonenumber(document.form1.cnumber)"> -->
           <div>
                   <!--      <p style="margin-right: -45px;margin-left: 819px;margin-top: -44px; color:#56bff0;font-size:small;">Disclaimer !!!</p>-->
           <p style="margin-left: 621px;font-size:small;">Disclaimer -  We'll never share your details with anyone else.</p>
         </div>
       </form>
     </section>
+
+    // FireBase for dynamic Web Pages
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCqV6kTTwa0E6n7qg5my2vwHPP2-IGIvaw",
+      authDomain: "stockwrapinfo-5ec9e.firebaseapp.com",
+      databaseURL: "https://stockwrapinfo-5ec9e.firebaseio.com",
+      projectId: "stockwrapinfo-5ec9e",
+      storageBucket: "",
+      messagingSenderId: "737116197699"
+    };
+    firebase.initializeApp(config);
+    </script>
+
+
   </body>
   <hr class="hr-pad"></hr>
   <footer  style="margin-bottom:15px;"><center class="jumbotron" style="padding:25px"> © 2018 Stock Wrap Info. All Rights Reserved.</center></footer>
