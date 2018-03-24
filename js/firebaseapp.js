@@ -11,7 +11,7 @@ firebase.initializeApp(config);
 
 
 // Reference to the recommendations object in your Firebase database
-var user_data = firebase.database().ref("user_data");
+var user_data = firebase.database().ref("user_data1");
 
 // Save a new recommendation to the database, using the input in the form
 var submitUser_data = function () {
