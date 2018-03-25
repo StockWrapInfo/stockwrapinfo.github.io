@@ -1,7 +1,4 @@
-// TODO: Replace with your project's config object. You can find this
-// by navigating to your project's console overview page
-// (https://console.firebase.google.com/project/your-project-id/overview)
-// and clicking "Add Firebase to your web app"
+
 var config = {
   apiKey: "AIzaSyCqV6kTTwa0E6n7qg5my2vwHPP2-IGIvaw",
   authDomain: "stockwrapinfo-5ec9e.firebaseapp.com",
@@ -11,25 +8,23 @@ var config = {
   messagingSenderId: "737116197699"
 };
 
-// Initialize your Firebase app
 firebase.initializeApp(config);
 
+
 // Reference to the recommendations object in your Firebase database
-var recommendations = firebase.database().ref("recommendations");
+var user_data = firebase.database().ref("user_data");
 
 // Save a new recommendation to the database, using the input in the form
 var submitRecommendation = function () {
 
   // Get input values from each of the form elements
-  var title = $("#talkTitle").val();
-  var presenter = $("#talkPresenter").val();
-  var link = $("#talkLink").val();
+  var fname = $("#fName").val();
+
 
   // Push a new recommendation to the database using those values
-  recommendations.push({
-    "title": title,
-    "presenter": presenter,
-    "link": link
+  user_data.push({
+    "First_Name": fname
+
   });
 };
 

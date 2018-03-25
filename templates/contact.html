@@ -3,7 +3,7 @@
   <head>
     <!-- FireBase for dynamic Web Pages -->
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-    <title> StockWrapInfo</title>
+    <title> StockWrapInfo </title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,7 +20,31 @@
   <body style="margin:0 40px; margin-bottom:0;">
 
     <!-- Load the application script, which will save data to our Firebase app. -->
-    <script src="../js/firebaseapp.js"></script>
+    <script>
+    $(function(){
+       const config = {
+        apiKey: "AIzaSyCqV6kTTwa0E6n7qg5my2vwHPP2-IGIvaw",
+        authDomain: "stockwrapinfo-5ec9e.firebaseapp.com",
+        databaseURL: "https://stockwrapinfo-5ec9e.firebaseio.com",
+        projectId: "stockwrapinfo-5ec9e",
+        storageBucket: "stockwrapinfo-5ec9e.appspot.com",
+        messagingSenderId: "737116197699"
+      };
+      firebase.initializeApp(config);
+      $(".js-form").on('submit', event => {
+        event.preventDefault();
+        const First_Name = $('#fName').val();
+        const Second_Name = $('#sName').val();
+        const EmailID = $('#Email').val();
+        const Country_Code = $('#cCode').val();
+        const Contact_Number = $('#cNumber').val();
+        console.log(First_Name,Second_Name,EmailID,Country_Code,Contact_Number);
+        firebase.database().ref('Subscriber_Details').push({
+              First_Name,Second_Name,EmailID,Country_Code,Contact_Number,
+        })
+      });
+    });
+    </script>
 
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <div class="container-fluid">
@@ -57,18 +81,18 @@
       </div>
       <hr>
       <h2 class="h2-sec">Contact Us</h2><br>
-      <form id="user_dataForm">
+      <form calss="js-form" id="user_dataForm">
         <div class="jumbotron" style="padding:20px;">
           <p><span class="text-danger">* Required Field.</span></p>
           <div class="row">
             <div class="col">
               <span class="text-danger">*</span>
-              <label for="fname">First Name</label>
-              <input type="text" id="fname" class="form-control" placeholder="First name">
+              <label for="fName">First Name</label>
+              <input type="text" id="fName" class="form-control" placeholder="First name">
             </div>
             <div class="col" style="margin-right:450px">
-              <label for="sname">Second Name</label>
-              <input type="text" id="sname" class="form-control" placeholder="Last name">
+              <label for="sName">Second Name</label>
+              <input type="text" id="sName" class="form-control" placeholder="Last name">
             </div>
           </div>
           <div class="form-group" style="margin-right:450px">
@@ -79,27 +103,24 @@
           <div class="row" style="margin-left:0px">
             <div class="col-drop dropdown">
               <span class="text-danger">*</span>
-              <label for="ccode">Country Code</label>
-              <input type="text" id="ccode" class="form-control" placeholder="Country Code">
+              <label for="cCode">Country Code</label>
+              <input type="text" id="cCode" class="form-control" placeholder="Country Code">
             </div>
             <div class="col" style="margin-right:450px">
               <span class="text-danger">*</span>
-              <label for="cnumber">Contact Number</label>
-              <input type="text" id="cnumber" class="form-control" placeholder="Contact Number">
+              <label for="cNumber">Contact Number</label>
+              <input type="text" id="cNumber" class="form-control" placeholder="Contact Number">
             </div>
       <!--          <div class="form-check">
                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
                      <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
           </div><br>
-            <button type="submit" class="btn btn-default">Submit</button> <!-- onclick="phonenumber(document.form1.cnumber)"> -->
+          <input type="submit" class="btn btn-primary" value="Submit"> <!-- onclick="phonenumber(document.form1.cnumber)"> -->
           <div>
                   <!--      <p style="margin-right: -45px;margin-left: 819px;margin-top: -44px; color:#56bff0;font-size:small;">Disclaimer !!!</p>-->
           <p style="margin-left: 621px;font-size:small;">Disclaimer -  We'll never share your details with anyone else.</p>
         </div>
       </form>
-    </section>
-
-
 
   </body>
   <hr class="hr-pad"></hr>

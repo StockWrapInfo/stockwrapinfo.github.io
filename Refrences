@@ -2,3 +2,100 @@
 // FireBase Real Time Database Connectivity
 http://mariechatfield.com/tutorials/firebase/step4.html
 https://www.firebase.com/docs/web/guide/setup.html
+
+
+
+$(function(){
+   const config = {
+    apiKey: "AIzaSyCqV6kTTwa0E6n7qg5my2vwHPP2-IGIvaw",
+    authDomain: "stockwrapinfo-5ec9e.firebaseapp.com",
+    databaseURL: "https://stockwrapinfo-5ec9e.firebaseio.com",
+    projectId: "stockwrapinfo-5ec9e",
+    storageBucket: "stockwrapinfo-5ec9e.appspot.com",
+    messagingSenderId: "737116197699"
+  };
+  firebase.initializeApp(config);
+  $(".js-form").on('submit', event => {
+    event.preventDefault();
+    const email = $('#js-email').val();
+    const password = $('#js-password').val();
+    const message = $('#js-message').val();
+    console.log(email,password,message);
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(user => {
+        firebase.database().ref('messages').push({
+          message,
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  });
+});
+
+
+<div class="container jumbotron " style="padding:10px;margin:10px">
+  <div class="row">
+    <div class="col">
+      <form class="js-form">
+        <div class="form-group">
+          <div class="row">
+            <div class="col">
+              <label for="fName">First Name:</label>
+              <input type="name" id="fName" class="form-control"/>
+            </div>
+            <div class="col">
+              <label for="sName">Second Name:</label>
+              <input type="name" id="sName" class="form-control"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="Email">Email:</label>
+            <input type="email" id="Email" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col">
+                <label for="cCode">Country Code:</label>
+                <input type="text" id="cCode" class="form-control"/>
+              </div>
+              <div class="col">
+                <label for="cNumber">Contact Number:</label>
+                <input type="text" id="cNumber" class="form-control"/>
+              </div>
+              <br>
+            </div>
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+$(function(){
+   const config = {
+    apiKey: "AIzaSyCqV6kTTwa0E6n7qg5my2vwHPP2-IGIvaw",
+    authDomain: "stockwrapinfo-5ec9e.firebaseapp.com",
+    databaseURL: "https://stockwrapinfo-5ec9e.firebaseio.com",
+    projectId: "stockwrapinfo-5ec9e",
+    storageBucket: "stockwrapinfo-5ec9e.appspot.com",
+    messagingSenderId: "737116197699"
+  };
+  firebase.initializeApp(config);
+  $(".js-form").on('submit', event => {
+    event.preventDefault();
+    const First_Name = $('#fName').val();
+    const Second_Name = $('#sName').val();
+    const EmailID = $('#Email').val();
+    const Country_Code = $('#cCode').val();
+    const Contact_Number = $('#cNumber').val();
+    console.log(First_Name,Second_Name,EmailID,Country_Code,Contact_Number);
+    firebase.database().ref('Subscriber_Details').push({
+          First_Name,Second_Name,EmailID,Country_Code,Contact_Number,
+    })
+  });
+});
