@@ -1,3 +1,7 @@
+function resetform() {
+document.getElementById("myform").reset();
+}
+
 // Phone NUmber Validation
 function phonenumber(inputtxt)
 {

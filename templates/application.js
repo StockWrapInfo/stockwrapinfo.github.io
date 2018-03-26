@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 
 
 // Reference to the recommendations object in your Firebase database
-var user_data = firebase.database().ref("user_data");
+var recommendations = firebase.database().ref("recommendations");
 
 // Save a new recommendation to the database, using the input in the form
 var submitRecommendation = function () {
@@ -22,7 +22,7 @@ var submitRecommendation = function () {
 
 
   // Push a new recommendation to the database using those values
-  user_data.push({
+  recommendations.push({
     "First_Name": fname
 
   });
@@ -37,6 +37,6 @@ $(window).load(function () {
 
   // Find the HTML element with the id recommendationForm, and when the submit
   // event is triggered on that element, call submitRecommendation.
-  $("#recommendationForm").submit(submitRecommendation);
+  $("#userdataForm").submit(submitRecommendation);
 
 });

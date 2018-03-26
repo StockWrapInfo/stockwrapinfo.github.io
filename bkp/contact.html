@@ -46,73 +46,61 @@
       </div>
     </div>
     <!-- Contact Us Section to move inside the page-->
-    <hr>
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="../img/contact.jpg" alt="contact_img">
+    <section id="contact" class="section"> <!--onload='document.form1.contactnum.focus()' >-->
+      <hr class="hr-pad"></hr>
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="../img/contact.jpg" alt="contact_img">
+          </div>
         </div>
       </div>
-    </div>
-    <hr>
-    <h2 class="h2-sec">Contact Us</h2><br>
-    <div class="container jumbotron " style="padding:20px;margin:10px">
-      <p><span class="text-danger">* Required Field.</span></p>
-      <div class="row">
-        <div class="col">
-          <form class="js-form" action="contact.html">
-            <div class="form-group">
-              <div class="row">
-                <div class="col">
-                  <span class="text-danger">*</span>
-                  <label for="fName">First Name:</label>
-                  <input type="name" id="fName" class="form-control" placeholder="Enter First_Name"/>
-                </div>
-                <div class="col" style="margin-right:450px">
-                  <label for="sName">Second Name:</label>
-                  <input type="name" id="sName" class="form-control" placeholder="Enter Second_Name"/>
-                </div>
-              </div>
-              <div class="form-group" style="margin-right:450px">
-                <span class="text-danger">*</span>
-                <label for="Email">Email:</label>
-                <input type="email" id="Email" class="form-control" placeholder="(e.g) ex@mail.com"/>
-              </div>
-              <div class="form-group">
-                <div class="row">
-                  <div class="col">
-                    <span class="text-danger">*</span>
-                    <label for="cCode">Country Code:</label>
-                    <input type="text" id="cCode" class="form-control" placeholder="(e.g) +91"/>
-                  </div>
-                  <div class="col" style="margin-right:450px">
-                    <span class="text-danger">*</span>
-                    <label for="cNumber">Contact Number:</label>
-                    <input type="text" id="cNumber" class="form-control" placeholder="Enter Contact_Number"/>
-                  </div>
-                  <br>
-                </div>
-                <div style="margin-top:10px;">
-                    <button class="btn btn-primary">Submit</button>
-                </div>
-                <div>
-                  <p style="margin-left: 621px;font-size:small;">Disclaimer -  We'll never share your details with anyone else.</p>
-                </div>
-              </div>
+      <hr>
+      <h2 class="h2-sec">Contact Us</h2><br>
+      <form id="user_dataForm">
+        <div class="jumbotron" style="padding:20px;">
+          <p><span class="text-danger">* Required Field.</span></p>
+          <div class="row">
+            <div class="col">
+              <span class="text-danger">*</span>
+              <label for="fName">First Name</label>
+              <input type="text" id="fName" class="form-control" placeholder="First name">
             </div>
-          </form>
+            <div class="col" style="margin-right:450px">
+              <label for="sName">Second Name</label>
+              <input type="text" id="sName" class="form-control" placeholder="Last name">
+            </div>
+          </div>
+          <div class="form-group" style="margin-right:450px">
+            <span class="text-danger">*</span>
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="(e.g) ex@mail.com">
+          </div>
+          <div class="row" style="margin-left:0px">
+            <div class="col-drop dropdown">
+              <span class="text-danger">*</span>
+              <label for="cCode">Country Code</label>
+              <input type="text" id="cCode" class="form-control" placeholder="Country Code">
+            </div>
+            <div class="col" style="margin-right:450px">
+              <span class="text-danger">*</span>
+              <label for="cNumber">Contact Number</label>
+              <input type="text" id="cNumber" class="form-control" placeholder="Contact Number">
+            </div>
+      <!--          <div class="form-check">
+                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                     <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
+          </div><br>
+          <input type="submit" class="btn btn-primary" value="Submit"> <!-- onclick="phonenumber(document.form1.cnumber)"> -->
+          <div>
+                  <!--      <p style="margin-right: -45px;margin-left: 819px;margin-top: -44px; color:#56bff0;font-size:small;">Disclaimer !!!</p>-->
+          <p style="margin-left: 621px;font-size:small;">Disclaimer -  We'll never share your details with anyone else.</p>
         </div>
-      </div>
-    </div>
-    <script>
-      function clearFields() {
-        document.getElementById("fName").value="";
-        document.getElementById("sName").value="";
-        document.getElementById("Email").value="";
-        document.getElementById('cCode').value="";
-        document.getElementById('cNumber').value="";
-      }
-    </script>
+      </form>
+    </section>
+
+
+
   </body>
   <hr class="hr-pad"></hr>
   <footer  style="margin-bottom:15px;"><center class="jumbotron" style="padding:25px"> © 2018 Stock Wrap Info. All Rights Reserved.</center></footer>
