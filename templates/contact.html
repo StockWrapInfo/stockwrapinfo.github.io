@@ -16,49 +16,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="../js/swi.js"></script>
-    <script>
-      // Form Validation
-
-  function validate(e) {
-    var fname = document.getElementById("fName").value;
-    var sname = document.getElementById("sName").value;
-    var emailid = document.getElementById("Email").value;
-    var ccode = document.getElementById("cCode").value;
-    var cnumber = document.getElementById("cNumber").value;
-
-    if (fname.length === 0) {
-        alert("You must enter a First Name !!!");
-        e.preventDefault();
-        return;
-    }
-
-    if (emailid.length === 0) {
-        alert("You must enter a Email-ID !!!");
-        e.preventDefault();
-        return;
-    }
-
-    if (ccode.length === 0) {
-      alert("You must enter a Country Code !!!");
-      e.preventDefault();
-      return;
-    }
-
-    if (cnumber.length === 0) {
-        alert("You must enter a Contact Number !!!");
-        e.preventDefault();
-        return;
-    }
-
-  }
-
-  window.onload = function() {
-  	document.getElementById("Form1").addEventListener("submit", function(e){
-      	validate(e);
-        });
-  }
-
-    </script>
   </head>
   <body style="margin:0 40px; margin-bottom:0;">
 
@@ -103,7 +60,7 @@
       <p><span class="text-danger">* Required Field.</span></p>
       <div class="row">
         <div class="col">
-          <form method="post" class="js-form" id="Form1" action="contact.html">
+          <form method="post" name="form1" class="js-form" id="Form1" action="contact.html">
             <div class="form-group">
               <div class="row">
                 <div class="col">
@@ -136,7 +93,7 @@
                   <br>
                 </div>
                 <div style="margin-top:10px;">
-                    <button class="btn btn-primary">Submit</button>
+                    <button id="Bttn" class="btn btn-primary">Submit</button>
                 </div>
                 <div>
                   <p style="margin-left: 621px;font-size:small;">Disclaimer -  We'll never share your details with anyone else.</p>

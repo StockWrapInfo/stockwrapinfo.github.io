@@ -17,7 +17,9 @@ $(function(){
     const Contact_Number = $('#cNumber').val();
     console.log(First_Name,Second_Name,EmailID,Country_Code,Contact_Number);
     firebase.database().ref('Subscriber_Details').push({
-          First_Name,Second_Name,EmailID,Country_Code,Contact_Number,
-    })
-  });
+      First_Name,Second_Name,EmailID,Country_Code,Contact_Number,
+      })
+    });
+    
+
 });
