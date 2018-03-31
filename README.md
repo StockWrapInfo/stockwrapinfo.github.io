@@ -1,5 +1,5 @@
 # stockwrapinfo.github.io
 
-OOPS !!!
+This is a project of StockWrapInfo.
 
-Site Under Developement.
+OOPS !!! Site Under Developement.
