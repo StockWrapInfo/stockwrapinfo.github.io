@@ -16,6 +16,49 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="../js/swi.js"></script>
+    <script>
+      // Form Validation
+
+  function validate(e) {
+    var fname = document.getElementById("fName").value;
+    var sname = document.getElementById("sName").value;
+    var emailid = document.getElementById("Email").value;
+    var ccode = document.getElementById("cCode").value;
+    var cnumber = document.getElementById("cNumber").value;
+
+    if (fname.length === 0) {
+        alert("You must enter a First Name !!!");
+        e.preventDefault();
+        return;
+    }
+
+    if (emailid.length === 0) {
+        alert("You must enter a Email-ID !!!");
+        e.preventDefault();
+        return;
+    }
+
+    if (ccode.length === 0) {
+      alert("You must enter a Country Code !!!");
+      e.preventDefault();
+      return;
+    }
+
+    if (cnumber.length === 0) {
+        alert("You must enter a Contact Number !!!");
+        e.preventDefault();
+        return;
+    }
+
+  }
+
+  window.onload = function() {
+  	document.getElementById("Form1").addEventListener("submit", function(e){
+      	validate(e);
+        });
+  }
+
+    </script>
   </head>
   <body style="margin:0 40px; margin-bottom:0;">
 
@@ -60,35 +103,35 @@
       <p><span class="text-danger">* Required Field.</span></p>
       <div class="row">
         <div class="col">
-          <form class="js-form" action="contact.html">
+          <form method="post" class="js-form" id="Form1" action="contact.html">
             <div class="form-group">
               <div class="row">
                 <div class="col">
                   <span class="text-danger">*</span>
                   <label for="fName">First Name:</label>
-                  <input type="name" id="fName" class="form-control" placeholder="Enter First_Name"/>
+                  <input type="name" id="fName" name="fn" class="form-control" placeholder="First Name"/>
                 </div>
                 <div class="col" style="margin-right:450px">
                   <label for="sName">Second Name:</label>
-                  <input type="name" id="sName" class="form-control" placeholder="Enter Second_Name"/>
+                  <input type="name" id="sName" name="sn" class="form-control" placeholder="Second Name"/>
                 </div>
               </div>
               <div class="form-group" style="margin-right:450px">
                 <span class="text-danger">*</span>
                 <label for="Email">Email:</label>
-                <input type="email" id="Email" class="form-control" placeholder="(e.g) ex@mail.com"/>
+                <input type="email" id="Email" name="ema" class="form-control" placeholder="(e.g) ex@mail.com"/>
               </div>
               <div class="form-group">
                 <div class="row">
                   <div class="col">
                     <span class="text-danger">*</span>
                     <label for="cCode">Country Code:</label>
-                    <input type="text" id="cCode" class="form-control" placeholder="(e.g) +91"/>
+                    <input type="text" id="cCode" name="cco" class="form-control" placeholder="(e.g) +91"/>
                   </div>
                   <div class="col" style="margin-right:450px">
                     <span class="text-danger">*</span>
                     <label for="cNumber">Contact Number:</label>
-                    <input type="text" id="cNumber" class="form-control" placeholder="Enter Contact_Number"/>
+                    <input type="text" id="cNumber" name="cnu" class="form-control" placeholder="Contact Number"/>
                   </div>
                   <br>
                 </div>
@@ -104,15 +147,6 @@
         </div>
       </div>
     </div>
-    <script>
-      function clearFields() {
-        document.getElementById("fName").value="";
-        document.getElementById("sName").value="";
-        document.getElementById("Email").value="";
-        document.getElementById('cCode').value="";
-        document.getElementById('cNumber').value="";
-      }
-    </script>
   </body>
   <hr class="hr-pad"></hr>
   <footer  style="margin-bottom:15px;"><center class="jumbotron" style="padding:25px"> © 2018 Stock Wrap Info. All Rights Reserved.</center></footer>
