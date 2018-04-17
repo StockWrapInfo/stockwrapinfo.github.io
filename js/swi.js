@@ -57,12 +57,12 @@ window.onscroll = function() {scrollFunction()};
     }
 
   }
-    
+
 window.onload = function() {
     document.getElementById("Form1").addEventListener("submit", function(e){
         validate(e);
     });
-    
+
   }
 
 
@@ -74,6 +74,7 @@ window.onload = function() {
               document.getElementById("Email").value = "";
               document.getElementById("cCode").value = "";
               document.getElementById("cNumber").value = "";
+              document.getElementById("exampleFormControlTextarea1").value = "";
           }, 1000);
       });
   });

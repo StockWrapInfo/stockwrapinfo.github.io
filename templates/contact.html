@@ -60,7 +60,7 @@
       <p><span class="text-danger">* Required Field.</span></p>
       <div class="row">
         <div class="col">
-          <form method="post" name="form1" class="js-form" id="Form1" action="contact.html">
+          <form method="post" name="form1" class="js-form" id="Form1" action=contact.html>
             <div class="form-group">
               <div class="row">
                 <div class="col">
@@ -69,7 +69,7 @@
                   <input type="name" id="fName" name="fn" class="form-control" placeholder="First Name"/>
                 </div>
                 <div class="col" style="margin-right:450px">
-                  <label for="sName">Second Name:</label>
+                  <label for="sName">&nbsp Second Name:</label>
                   <input type="name" id="sName" name="sn" class="form-control" placeholder="Second Name"/>
                 </div>
               </div>
@@ -83,18 +83,39 @@
                   <div class="col">
                     <span class="text-danger">*</span>
                     <label for="cCode">Country Code:</label>
-                    <input type="text" id="cCode" name="cco" class="form-control" placeholder="(e.g) +91"/>
+                    <input type="text" id="cCode" name="cco" class="form-control" placeholder="(e.g) +1"/>
                   </div>
                   <div class="col" style="margin-right:450px">
                     <span class="text-danger">*</span>
                     <label for="cNumber">Contact Number:</label>
                     <input type="text" id="cNumber" name="cnu" class="form-control" placeholder="Contact Number"/>
                   </div>
-                  <br>
                 </div>
-                <div style="margin-top:10px;">
-                    <button id="Bttn" class="btn btn-primary">Submit</button>
+                <div class="form-group" style="margin-right:450px">
+                  <label for="exampleFormControlTextarea1">&nbsp Comments:</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
+                <div class="row">
+                  <div class="col">
+                    <div style="margin-top:10px;">
+                    <button id="Bttn-c" type="reset" class="btn btn-light">Cancel</button>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div style="margin-top:10px;">
+                    <button id="Bttn" class="btn btn-primary" style="margin-left:-30em">Submit</button>
+                </div>
+              </div>
+              <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <p class="text-center text-success">Thanks For Your Time !!!</p>
+                  <p class="text-center text-info">You're reached us successfully.</p>
+                </div>
+              </div>
+            </div>
                 <div>
                   <p style="margin-left: 621px;font-size:small;">Disclaimer -  We'll never share your details with anyone else.</p>
                 </div>
@@ -104,6 +125,33 @@
         </div>
       </div>
     </div>
+    <script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("Bttn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    </script>
   </body>
   <hr class="hr-pad"></hr>
   <footer  style="margin-bottom:15px;"><center class="jumbotron" style="padding:25px"> © 2018 Stock Wrap Info. All Rights Reserved.</center></footer>
