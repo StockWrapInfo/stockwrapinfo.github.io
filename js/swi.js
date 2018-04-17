@@ -28,7 +28,6 @@ window.onscroll = function() {scrollFunction()};
 // Form Validation
   function validate(e) {
     var fname = document.getElementById("fName").value;
-    var sname = document.getElementById("sName").value;
     var emailid = document.getElementById("Email").value;
     var ccode = document.getElementById("cCode").value;
     var cnumber = document.getElementById("cNumber").value;

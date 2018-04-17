@@ -90,7 +90,7 @@
                     <label for="cNumber">Contact Number:</label>
                     <input type="text" id="cNumber" name="cnu" class="form-control" placeholder="Contact Number"/>
                   </div>
-                </div>
+                </div><br>
                 <div class="form-group" style="margin-right:450px">
                   <label for="exampleFormControlTextarea1">&nbsp Comments:</label>
                   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -137,6 +137,13 @@
 
     // When the user clicks the button, open the modal
     btn.onclick = function() {
+      var fname = document.getElementById("fName").value;
+      var sname = document.getElementById("sName").value;
+      var emailid = document.getElementById("Email").value;
+      var ccode = document.getElementById("cCode").value;
+      var cnumber = document.getElementById("cNumber").value;
+      var phoneno = /^\d{10}$/;
+      if (fname.length !=0 &&  emailid.length !=0 && ccode.length != 0 && cnumber.length !=0 && cnumber == (cnumber.match(phoneno)))
         modal.style.display = "block";
     }
 
