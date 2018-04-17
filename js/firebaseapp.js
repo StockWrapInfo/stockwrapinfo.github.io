@@ -16,9 +16,11 @@ $(function(){
     const Country_Code = $('#cCode').val();
     const Contact_Number = $('#cNumber').val();
     const Comments = $('#exampleFormControlTextarea1').val();
+    if (First_Name.length != 0 &&  EmailID.length != 0 && Country_Code.length != 0 && Contact_Number.length != 0){
     console.log(First_Name,Second_Name,EmailID,Country_Code,Contact_Number,Comments);
       firebase.database().ref('Subscriber_Details').push({
         First_Name,Second_Name,EmailID,Country_Code,Contact_Number,Comments
-        })
+      })
+    }
       });
 });
